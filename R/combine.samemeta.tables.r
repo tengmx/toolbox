@@ -1,5 +1,7 @@
-### refcol, combcol must be integers
-### reference column must be keys of tables
+### combine similar tables with at least one key column and one value comlumn
+### input: a list of tables with the same columns except the value column
+### output: one table with meta columns and all values columns
+## refcol, combcol must be integers; reference column must be keys of tables
 combine.samemeta.tables <- function(tablist,reftab=NULL,refcol=1,combcol=2){
     if(is.null(reftab)){
         refrow <- c()
