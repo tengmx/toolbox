@@ -9,7 +9,6 @@ encodepeak.to.granges <- function(peakfile,gz=TRUE,format=c("broad", "narrow"),
     library(GenomicRanges)
     if(gz)
         peakfile <- gzfile(peakfile)
-    if(file.size(peakfile) != 0){
         peaktbl <- read.delim(peakfile,stringsAsFactors=F,quote = "",header=F,sep="")
         if(meta){
             peaks <- GRanges(peaktbl$V1,IRanges(start=peaktbl$V2+1,end=peaktbl$V3),
@@ -21,7 +20,4 @@ encodepeak.to.granges <- function(peakfile,gz=TRUE,format=c("broad", "narrow"),
                              strand=gsub('\\.','\\*',peaktbl$V6))
         }
         peaks
-    }else{
-        GRanges()
-    }
 }

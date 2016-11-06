@@ -11,7 +11,7 @@ encodepeaks.to.grangeslist <- function(peakfiles,gz=FALSE,meta=TRUE,
     for(i in seq_len(length(peakfiles))){
         pkf <- peakfiles[i]
         type <- strsplit(pkf,split='\\.')[[1]]
-        if("narrowPeak" %in% type){
+        if("narrowPeak" %in% type || "bed" %in% type){
             tmp <- encodepeak.to.granges(pkf,gz=gz,format="narrow",meta=meta)
         }else if("broadPeak" %in% type){
             tmp <- encodepeak.to.granges(pkf,gz=gz,format="broad",meta=meta)
